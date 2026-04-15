@@ -1,0 +1,22 @@
+to rhu :j :r
+  repeat :j[rt 0.5 fd :r*pi/180 rt 0.5]
+end
+to lhu :j :r
+  repeat :j[lt 0.5 fd :r*pi/180 lt 0.5]
+end
+to h :r :i
+  repeat 5[pu fd :r/10*:i pd rt 90 rhu 108 :r/10*:i rt 180 lhu 108 :r/10*:i rt 90 pu bk :r /10*:I  rt 108 fd :r rt 144 fd :r lt 180 ]
+  wait 15
+  repeat 5[pu fd :r/10*:i rt 90 rhu 108 :r/10*:i rt 180 pe lhu 108 :r/10*:i rt 90 pu bk :r /10*:I  rt 108 fd :r rt 144 fd :r lt 180 ]
+end
+
+to wjx :r
+  ht
+  lt 90 
+  rt 108 repeat 5[fd :r rt 144 fd :r lt 72]lt 108
+  for "i 1 10[h :r :i setpc 5+:I]
+end
+to main
+  draw 
+  wjx 50
+end

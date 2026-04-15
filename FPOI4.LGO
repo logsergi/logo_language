@@ -1,0 +1,21 @@
+to gys :x :y :z
+	make "xz ((remainder :x :z) =0)
+	make "yz ((remainder :y :z) =0)
+	if and :xz :yz then op "true else op "false
+end
+
+to zdgys :a :b
+	if :a<:b then make "c :a else make "c :b
+	while [not (gys :a :b :c)] [make "c :c-1]
+	output :c
+end
+
+to zxgbs :a :b
+	make "o zdgys :a :b
+	make "o :a*:b / :o
+	OP :O
+end
+
+TO FPOI4 :M :N :K
+	PR ZXGBS :M (ZXGBS :N :K)
+END

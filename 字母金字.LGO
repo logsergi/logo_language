@@ -1,0 +1,16 @@
+to main :c
+  cs make"n (ascii :c)-(ascii "a)
+  jzt :n
+end
+
+to jzt :n
+  if :n=-1 then stop
+  for"i 0 :n[tt char :i+65 gort]
+  (for"i :n-1 0[tt char :i+65 gort] -1)
+  pu lt 90 fd :n*2*8 rt 90 fd 12 pd
+  jzt :n-1
+end
+
+to gort
+  pu rt 90 fd 8 lt 90 pd
+end

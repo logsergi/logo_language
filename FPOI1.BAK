@@ -1,0 +1,37 @@
+to zf :b :c
+  repeat :c[fd :b rt 90]
+end
+
+TO LF3 :M 
+	draw
+	make "b 20
+	IF :m=2 then rt 90
+	IF :m<=2 then repeat 4[zf :b 5 lt 90] stop
+
+	IF :m=4 then rt 90
+	IF :m<=4 then repeat 4[zf :b 6 rt 180] stop
+
+	if :m=6 then rt 90
+	if :m=7 then rt 180
+	if :m=8 then rt 270
+	IF :m<=8 then repeat 3[zf :b 5 lt 90] bk :b rt 90 fd :b zf :b 4 stop
+
+	if :m=10 then rt 90
+	if :m=11 then rt 180
+	if :m=12 then rt 270
+	if :m<=12 then repeat 3[zf :b 5 lt 90] rt 90 fd :b zf :b 4 stop
+
+	if :m=14 then rt 90
+	if :m=15 then rt 180
+	if :m=16 then rt 270
+	if :m<=16 then repeat 3[zf :b 5 lt 90] bk :b*2 rt 90 fd :b zf :b 4 stop
+END
+
+to fpoi1 :n
+	if :n=1 lf3 10
+	if :n=2 lf3 16
+	if :n=3 lf3 8
+	if :n=4 lf3 3
+	if :n=5 lf3 2
+	if :n=6 lf3 1
+end

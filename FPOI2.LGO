@@ -1,0 +1,14 @@
+to lhu :j :r
+  repeat :j[fd :r*pi/180 lt 1]
+end
+to Rhu :j :r
+  repeat :j[fd :r*pi/180 rt 1]
+end
+
+to fpoi2 :r
+  if :r<5 then stop
+  lhu 90 :r fpoi2 :r/2 rt 180 rhu 90 :r rt 180
+  fd:r*pi/2 fpoi2 :r/2 bk :r*pi/2 
+  rhu 90 :r fpoi2 :r/2 lt 180 lhu 90 :r rt 180
+end
+

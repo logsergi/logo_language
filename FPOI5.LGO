@@ -1,0 +1,12 @@
+to mkword :c1 :c2
+	make "cc "
+	make "ac1 ascii :c1 make "ac2 ascii :c2 
+	for "i :ac1 :ac2 [make "cc word :cc (char :i)]
+	for "i 1 (:ac2-:ac1) [make "cc word :cc (char :ac2-:i )]
+     op :cc
+end
+
+TO FPOI5 :C
+	
+	for "M (ascii "A) (ascii :c) [tt mkword "A (char :M) pu bk 15 rt 90 bk 8 lt 90 pd]	
+END
