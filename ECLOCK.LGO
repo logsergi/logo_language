@@ -1,0 +1,27 @@
+to face
+  pu lt 90 fd 80 rt 90 bk 100
+  pd setpc 12 setw 4 stamprect 200 160
+  pu fd 80 rt 90 fd 100 lt 90
+  pd
+  setpc 0
+  setw 2 repeat 4[pu fd 65 pd fd 15 pu bk 80 pd rt 90]
+  setw 1 repeat 12[pu fd 70 pd fd 10 pu bk 80 pd rt 30]
+end
+to clock :h :m :s
+  pd
+  setw 4 setpc 10 seth :h*30+:m/2 fd 35 bk 35
+  setw 3 setpc 11 seth :m*6 fd 45 bk 45
+  setw 2 setpc 12 seth :s*6 fd 55 bk 55
+  setpc 0
+  wait 100
+  pe
+  setw 4 setpc 10 seth :h*30+:m/2 fd 35 bk 35
+  setw 3 setpc 11 seth :m*6 fd 45 bk 45
+  setw 2 setpc 12 seth :s*6 fd 55 bk 55
+  setpc 0
+end
+to eclock
+  draw ht
+  face
+  while [1=1][clock (item 1 time) (item 2 time) (item 3 time)]
+end

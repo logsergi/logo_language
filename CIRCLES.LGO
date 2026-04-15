@@ -1,0 +1,12 @@
+to rhu :r :j
+  repeat :j[fd pi*:r/180 rt 1]
+end
+to circle :r :n
+  make "precision 6
+  stampoval :r :r
+  make "xr (:r*sin(180/:n))/(1+sin(180/:n)) pr :xr
+  repeat :n[pu fd :r-:xr pd stampoval :xr :xr pu bk :r-:xr pd rt 360/:n]
+end
+to circle1 :r :n
+  repeat :n[rhu :r 360/:n rhu (:r*sin(180/:n))/(1+sin(180/:n)) 360]
+end 

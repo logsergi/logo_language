@@ -1,0 +1,7 @@
+to chaplet :r :n
+  cs
+  repeat :n[repeat 360/:n[fd 0.0175*:r rt 1]zgc :r :n]
+end 
+to zgc :r :n
+  repeat 360[fd 0.0175*(:r*sin 360/:n/2 )/(1+sin 360/:n/2) rt 1]
+end

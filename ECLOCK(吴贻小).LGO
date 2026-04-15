@@ -1,0 +1,27 @@
+to eclock
+  draw ht zm ;画钟面
+  make"m item 3 time ;取秒
+  make"f item 2 time ;取分
+  make"s item 1 time ;取时
+  pu home
+  runclock
+end
+to zm
+  setpc 0
+  repeat 4[pu fd 80 pd setw 2 bk 15 pu bk 65 setw 1 rt 30 \
+  repeat 2[fd 80 pd bk 10 pu bk 70 rt 30]]    ;画内部
+  lt 90 fd 100 rt 90 bk 80 pd setw 3 setpc 12 stamprect 200 160 ;画外框
+end
+to runm
+  if :m=0 then eclock stop ;如果秒针走到向上位置(走过60秒),刷新一次分针和时针(清除原有的再画)
+  make"m item 3 time
+  seth 6*:f setw 2 setpc 9 pd fd 45  ;画分针
+  home seth 30*(:s+:f/60) setw 3 setpc 2 pd fd 40  ;画时针
+  ;分针和时针本来放在主过程中一分钟重画一次即可,
+  ;但为了防止与秒针重叠时被秒针pe时擦除，故放在runm内。
+  home setw 1 setpc 12 seth 6*:m pd fd 60 wait 100 pe ;画秒针,1秒后自动擦除
+  home runm
+end
+
+;难点：分针和时针每秒都在重新描线，但只有当秒针为0度方向重新调主过程时，上一分钟的
+;分针和时针才被擦除。

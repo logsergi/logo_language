@@ -1,0 +1,13 @@
+to smooth :a :b
+  local "x
+  make "x 2
+  while [:a>1][ \
+    if (remainder :a :x)=0 then \
+	 [if :x>:b then op 1 stop else make "a :a/:x] \
+    else make "x :x+1 ]
+  op 0
+end
+to bsmooth :n :b
+  (type 1)
+  for "i 2 :n[if (smooth :i :b)=0 then (type [,] :i)]
+end

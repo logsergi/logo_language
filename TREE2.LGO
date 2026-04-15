@@ -1,0 +1,24 @@
+to rhu :j :r
+  repeat :j[fd :r*pi/180 rt 1]
+end
+to lhu :j :r
+  repeat :j[fd :r*pi/180 lt 1]
+end
+to yezi
+ setpc 10
+ lt 45 repeat 2[rhu 90 5 rt 90] rt 45
+ pu fd 5 pd fill bk 5
+ setpc 0 
+end
+
+to tree :a
+  if :a<5 then yezi stop
+  lhu 90 :a tree :a/2
+  lt 180 rhu 90 :a lt 180
+  fd :a*pi/2 tree :a/2
+  bk :a*pi/2 
+  rhu 90 :a tree :a/2
+  lt 180 lhu 90 :a
+  rt 180
+end
+  

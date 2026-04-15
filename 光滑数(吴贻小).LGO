@@ -1,0 +1,9 @@
+to wyxmooth :n :b
+  type 1
+  for"m 2 :n[  \
+    make"x :m  make"i 2 \
+    while[not :x=1][if (remainder :x :i)=0 then make"x :x/:i else make"i :i+1 ] \
+    if :i<=:b then (type [,] :m)  \
+  ]
+end
+

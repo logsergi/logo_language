@@ -1,0 +1,21 @@
+to rhu :r :n
+  repeat :n[fd 0.0175*:r rt 1]
+end
+to zhu :r :n
+  repeat :n[fd 0.0175*:r lt 1]
+end
+to rqx :r :n
+  repeat 2[rhu :r :n zhu :r :n]
+end
+to zqx :r :n
+  repeat 2[zhu :r rhu :r :n]
+end
+to djx  :n
+  repeat :n[rqx 30 80 rt 180-180/:n]
+end
+
+to main
+  draw
+  pu lt 90 fd 300 pd rt 90
+  (for "i 5 9 [djx :i pu rt 90 fd 200 lt 90 pd] 2)
+end
