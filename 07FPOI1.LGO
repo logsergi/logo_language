@@ -1,0 +1,19 @@
+to hgzhx
+  cs pu rt 90 bk 200 lt 90 pd
+  repeat 2[fd 100 rt 90 fd 400 rt 90]
+  rt 90 fd 50 rt 45 jiao lt 45
+  fd 300 rt 45 jiao lt 45
+  bk 100 lt 45 fd 100/(sin 45) bk 100/(sin 45) rt 45 bk 100 lt 90 fd 50 lt 90 fd 100 rt 90 fd 50
+  lt 90 fd 50 lt 90 jiao repeat 2[seth 45 fd 100/(sin 45) seth 135 fd 100/sin 45 ]
+  seth 270 fd 200 rt 90 bk 100 fd 200 rt 90 fd 100 bk 200 fd 100 seth 0 bk 100 rt 90 fd 200
+  seth 45 repeat 2[fd 100/sin 45 rt 135 fd 100 rt 45]fd 100/sin 45 
+  lt 90 yuan  seth 180 fd 60 lt 90  yuan seth 0 fd 30 pu seth 120 fd 30 pd jiao
+end
+to jiao
+   fd 50 rt 90 fd 20 rt 90 repeat 90[fd 0.0175*30 lt 1]
+   repeat 90[rt 1 bk 0.0175*30] lt 90 bk 20 lt 90 bk 50 
+   rt 90 fd 50 lt 90 fd 20 bk 20 rt 90 bk 50 lt 90 
+end
+to yuan
+  repeat 180[fd 0.0175*30 lt 1]repeat 180[rt 1 bk 0.0175*30]
+end
