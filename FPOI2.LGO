@@ -1,0 +1,14 @@
+TO FPOI2 :N :S
+	REPEAT 2 [AA :N :S LT 90 FD :S LT 90]
+END
+
+TO AA :N :S
+	IF :N = 0 [FD :S RT 90 FD :S LT 90 FD :S LT 90 FD :S RT 90 FD :S STOP]
+	AA :N - 1 :S
+	RT 90 FD :S LT 90 FD :S RT 90
+	AA :N - 1 :S
+	LT 90 FD :S LT 90
+	AA :N - 1 :S
+	RT 90 FD :S LT 90 FD :S RT 90
+	AA :N - 1 :S
+END

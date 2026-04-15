@@ -1,0 +1,12 @@
+to change 
+ if (remainder :n 2)=0 then make "n :n/2 else make "n :n*3+1
+end 
+to fpoi4 :n
+  draw fs pu
+  setxy [-300 -200]
+  seth 0
+  pd fd :n pu bk :n+10 pd tt :n pu fd 10 rt 90 fd 30 lt 90
+  while [:n>1][ change pd fd :n pu bk :n+10 pd tt :n pu fd 10 rt 90 fd 30 lt 90]
+  ht
+end
+  

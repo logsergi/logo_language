@@ -1,0 +1,10 @@
+to gys :a :b
+   if :b=0 then make "r :a stop
+   gys :b REMAINDER :a :b
+end
+to fpoi3 :n :m
+   draw ht rt 90
+   gys :N :M
+   if :r=1 then tt "kill!!! stop
+   (for "i 0 :n-1[if ( REMAINDER :i :r) > 0 then tt :i pu fd 20 pd]1)
+end

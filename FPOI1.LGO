@@ -1,0 +1,26 @@
+to al
+  pu fd 5 pd fd 20 pu fd 5
+end
+to noal
+  pu fd 5 fd 20 fd 5
+end
+
+to dn :n
+  pu home pd
+  setw 5
+  if :n=0 then [repeat 2[al al rt 90 al rt 90]
+  if :n=1 then [noal noal rt 90 noal rt 90 al al]
+  if :n=2 then [noal noal rt 90 al rt 90 al rt 90 al lt 90 al lt 90 al ]
+  if :n=3 then [noal noal rt 90 al rt 90 al rt 90 al lt 180 al rt 90 al rt 90 al ]
+  if :n=4 then [noal al rt 90 noal rt 90 al rt 90 al lt 180 al rt 90 al ]
+  if :n=5 then [noal al rt 90 al rt 90 noal rt 90 al rt 180 al rt 90 al rt 90 al]
+  if :n=6 then [al al rt 90 al rt 90 noal rt 90 al rt 180 al rt 90 al rt 90 al]
+  if :n=7 then [noal noal rt 90 al rt 90 al al]
+  if :n=8 then [al al rt 90 al rt 90 al rt 90 al rt 180 al rt 90 al rt 90 al]
+  if :n=9 then [noal al rt 90 al rt 90 al rt 90 al rt 180 al rt 90 al rt 90 al]
+end
+to fpoi1
+  draw ht
+  (for "n 9 0[dn :n wait 100 clean] -1)
+end
+  
