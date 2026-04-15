@@ -1,0 +1,9 @@
+TO sj :a :n
+	if :n<1 then fd :a stop
+	sj :a/3 :n-1 lt 60 sj :a/3 :n-1 rt 120  sj :a/3 :n-1 lt 60 sj :a/3 :n-1
+end
+TO main :a
+   for "n 0 3[clean seth -30 repeat 3[sj :a :n rt 120]wait 100] \
+  (for "n 2 1[clean seth -30 repeat 3[sj :a :n rt 120]wait 100] -1) \
+   main :a
+end

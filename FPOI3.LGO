@@ -1,0 +1,24 @@
+to tree :s :a
+  if :s<10 then stop
+  lt :a/2 fd :s ye3
+  tree :s/2 :a
+  bk :s
+  rt :a fd :s ye3
+  tree :s/2 :a
+  bk :s
+  lt :a/2
+end
+to rye :a :j
+  repeat 2[repeat :j[fd :a*pi/180 rt 1]rt 180-:j]
+end
+to ye3
+  lt 90
+  repeat 3[rye 7 90 rt 45]
+  lt 45
+end
+to Fpoi2 :n :s :a
+  draw
+  lt 90 pu fd 200*:n pd rt 90 pd
+  repeat :n*2+1[tree :s :a bk :s/2 fd :s/2 pu rt 90 fd 200 lt 90 pd]
+  ht
+end

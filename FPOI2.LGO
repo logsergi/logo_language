@@ -1,0 +1,30 @@
+to clock.face :r
+	pd setw 2 stampoval :r :r
+	repeat 4[pu fd :r*0.8 pd fd :r*0.2 pu bk :r rt 90]
+	setw 1
+	repeat 12[pu fd :r*0.9 pd fd :r*0.1 pu bk :r rt 30]
+
+	pu lt 45 fd :r/15 seth 0
+	make "n 1 rt 30
+	repeat 12[pu fd :r*0.7 pd tt :n pu bk :r*0.7 rt 30 make "n :n+1]
+	pu lt 75 bk :r/15 seth 0
+ 
+end
+to clock.finger :r :h :m :s
+	pd
+     seth 360/12*:h+30/60*:m
+	setwidth 3 fd :r*0.4 bk :r*0.4
+	seth 360/60*:m+30/60*:s
+	setwidth 2 fd :r*0.55 bk :r*0.55
+	seth 360/60*:s
+	setwidth 1 fd :r*0.7 bk :r*0.7
+end
+to clock :t :r
+	make "h (int :t/10000) 
+	make "s remainder :t 100
+	make "m remainder (int :t/100) 100
+	pr :h pr :m pr :s
+	cs
+     setwidth 1 clock.face :r
+	clock.finger :r :h :m :s
+end

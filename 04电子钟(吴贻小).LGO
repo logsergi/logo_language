@@ -1,0 +1,24 @@
+to fpoi2 :t :r
+  draw
+  biaopan :r
+  make"s  int :t/10000
+  make"f  int(remainder :t 10000)/100
+  make"m  remainder :t 100 
+  seth :m*6 setw 1 fd :r*3/4 pu home pd
+  seth (:f+:m/60)*6 setw 2 fd :r*2/3 pu home pd 
+  seth (:s+:f/60)*30 setw 3 fd :r/2 pu home pd
+end
+
+to biaopan :r
+  ;一、画钟面
+  stampoval :r :r ;画外框
+  repeat 4[setw 2 pu fd :r*0.8 pd fd :r*0.2 pu bk :r rt 30 \
+	  setw 1 repeat 2[pu fd :r*0.9 pd fd :r*0.1 pu bk :r rt 30]] ;画刻度
+  home 
+  ;二、打印时钟12个刻度数值
+  pu lt 90 fd 4 rt 90 fd 4 pd rt 30
+		  ;tt一个数字的宽度为8，一半为4,向左向上各移4，把数字刻度打正
+  make"n 1
+  repeat 12[pu fd 0.7*:r pd tt :n make"n :n+1 pu bk 0.7*:r rt 30]
+  home pd
+end

@@ -1,0 +1,10 @@
+to fpoi1
+  DRAW
+  for "j 1 1000[YSH :J]
+  HT
+END
+TO YSH :N
+	LOCAL "I MAKE "S 0
+	FOR "I 1 :N-1[IF (REMAINDER :N :I) =0 MAKE "S :S+:I]
+	if :N=:S then [TT :S pu rt 90 fd 20 lt 90 pd tt '+'  FOR "I 1 :N-1[IF (REMAINDER :N :I) =0  then [tt :I PU RT 90 FD 30 LT 90 PD ]]] 
+END 

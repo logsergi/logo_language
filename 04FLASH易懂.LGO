@@ -1,0 +1,23 @@
+to fpoi4 :s
+  t1 :s wait 100 cs t2 :s wait 100 cs t3 :s wait 100 cs 
+  t4 :s wait 100 cs t3 :s wait 100 cs t2 :s wait 100 cs 
+  fpoi4 :s
+end
+
+to t1 :s
+  lt 30 repeat 3[fd :s rt 120]
+end
+to t2 :s
+  lt 30 repeat 3[kq :s/3 0 rt 120]
+end
+to t3 :s
+  lt 30 repeat 3[kq :s/3 1 rt 120]
+end
+to t4 :s
+  lt 30 repeat 3[kq :s/3 2 rt 120]
+end
+to kq :s :n
+  if :n=0 then fd :s lt 60 fd :s rt 120 fd :s lt 60 fd :s stop
+  kq :s/3 :n-1 lt 60 kq :s/3 :n-1 rt 120 kq :s/3 :n-1
+  lt 60 kq :s/3 :n-1
+end

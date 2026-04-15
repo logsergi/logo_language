@@ -1,0 +1,9 @@
+to 04fpoi1 :n
+  draw
+  for"i 1 :n[wqs :i]
+end
+to wqs :i
+  make"sum 0
+  for"j 1 :i-1[if 0=remainder :i :j then make"sum :sum+:j]
+  if :sum=:i then tt :i pu rt 90 fd 30 lt 90 pd
+end
